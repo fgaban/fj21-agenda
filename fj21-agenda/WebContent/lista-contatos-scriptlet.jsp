@@ -24,14 +24,14 @@
 				<td><%=contato.getNome()%></td>
 				<td><%=contato.getEmail()%></td>
 				<td><%=contato.getEndereco()%></td>
-				<td><%new SimpleDateFormat("dd/MM/yyyy").parse(contato.getDataNascimento().getTime())%></td>
+				<td><%new SimpleDateFormat("dd/MM/yyyy").format(contato.getDataNascimento().getTime());%></td>
 				<td>
 					<%
 						Calendar dataNascimento = null;
-						Date date = new SimpleDateFormat("dd/MM/yyyy").parse(contato.getDataNascimento().getTime());
-						dataNascimento = Calendar.getInstance();
+						//Date date = new SimpleDateFormat("dd/MM/yyyy").format((contato.getDataNascimento().getTime()));
+						//dataNascimento = Calendar.getInstance();
 					%>	
-					<%= dataNascimento.setTime(date)%>
+					<%//= dataNascimento.setTime(date)%>
 				</td>
 			</tr>	
 		<%
