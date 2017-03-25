@@ -6,15 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.sun.org.apache.bcel.internal.classfile.ConstantObject;
-import com.sun.xml.internal.ws.handler.ServerLogicalHandlerTube;
 
 import br.com.caelum.agenda.dao.ContatoDao;
 import br.com.caelum.agenda.modelo.Contato;
@@ -66,11 +64,14 @@ public class AdicionaContatoServlet extends HttpServlet {
 		dao.adiciona(contato);
 
 		// imprime o nome do contato que foi adicionado
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Contato " + contato.getNome() + " adicionado com sucesso");
-		out.println("</body>");
-		out.println("</html>");
+		//out.println("<html>");
+		//out.println("<body>");
+		//out.println("Contato " + contato.getNome() + " adicionado com sucesso");
+		//out.println("</body>");
+		//out.println("</html>");
+		//tira o html da servlet e poe no JSP (MVC)
+		RequestDispatcher rd = request.getRequestDispatcher("/contato-adicionado.jsp");
+		rd.forward(request, response);
 
 	}
 }

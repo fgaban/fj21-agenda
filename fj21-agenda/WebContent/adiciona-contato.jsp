@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="tagData"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="minhasTags"%>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
 		Nome: <input type="text" name="nome" /><br /> 
 		E-mail: <input type="text" name="email" /><br /> 
 		Endereco: <input type="text" name="endereco" /><br /> 
-		Data Nascimento: <tagData:campoData id="dataNascimento" /><br /> 
+		Data Nascimento: <minhasTags:campoData id="dataNascimento" /><br /> 
 		
 		<input type="submit" value="Gravar">
 	</form>
