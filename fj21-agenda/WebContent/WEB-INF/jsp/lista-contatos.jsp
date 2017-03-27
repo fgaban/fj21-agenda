@@ -12,8 +12,8 @@
 <body>
 	<c:import url="cabecalho.jsp"/>
 
-	<!--  cria/instancia o DAO -->
-	<jsp:useBean id="dao" class="br.com.caelum.agenda.dao.ContatoDao" />
+	<!--  criava/instanciava o DAO - ex antes do MVC tb alterou o items do forEach ${dao.lista} -->
+	<!-- jsp:useBean id="dao" class="br.com.caelum.agenda.dao.ContatoDao" />  -->
 	
 	<table border="1">
 		<!-- percorre contatos montando as linhas da tabela -->
@@ -23,7 +23,7 @@
 			<td>Endereco</td>
 			<td>Data Nascimento</td>
 		</tr>
-		<c:forEach var="contato" items="${dao.lista}" varStatus="id">
+		<c:forEach var="contato" items="${contatos}" varStatus="id">
 			<tr bgcolor="#${id.count % 2 == 0 ? 'aaee88' : 'ffffff' }">
 				<td>${contato.nome}</td>
 				<td>
@@ -41,10 +41,19 @@
 					<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>
 				</td>
 				<td>
+					<a href="grava-contato.jsp?id=${contato.id}&nome=${contato.nome}&email=${contato.email}
+															&endereco=${contato.endereco}&dataNascimento=${contato.dataNascimento.time}">Alterar</a>
+				</td>
+				<td>
 					<a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>
 				</td>
 			</tr>
 		</c:forEach>
+		<tr align="center">
+			<td>
+				<a href="grava-contato.jsp?id=0">Incluir</a>
+			</td>
+		</tr>
 	</table>
 	<c:import url="rodape.jsp"/>
 </body>
