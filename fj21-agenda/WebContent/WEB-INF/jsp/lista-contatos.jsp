@@ -42,7 +42,7 @@
 				</td>
 				<td>
 					<a href="grava-contato.jsp?id=${contato.id}&nome=${contato.nome}&email=${contato.email}
-															&endereco=${contato.endereco}&dataNascimento=${contato.dataNascimento.time}">Alterar</a>
+						&endereco=${contato.endereco}&dataNascimento=<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>">Alterar</a>
 				</td>
 				<td>
 					<a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>

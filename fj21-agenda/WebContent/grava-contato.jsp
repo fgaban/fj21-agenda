@@ -19,8 +19,8 @@
 		<input type="hidden" name="id" value="${param.id}" />	
 		Nome: <input type="text" name="nome" value="${param.nome}" /><br /> 
 		E-mail: <input type="text" name="email" value="${param.email}" /><br /> 
-		Endereco: <input type="text" name="endereco" value="${param.endereco}" /><br /> 
-		Data Nascimento: <minhasTags:campoData id="dataNascimento" /><br /> 
+		Endereco: <input type="text" name="endereco" value="${param.endereco}" /><br />
+		Data Nascimento: <minhasTags:campoData id="dataNascimento" valor="${param.dataNascimento}" /><br /> 
 		
 		<input type="submit" value="Gravar">
 	</form>
