@@ -1,5 +1,6 @@
 package br.com.caelum.mvc.logica;
 
+import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,14 +13,14 @@ import br.com.caelum.agenda.modelo.Contato;
 
 public class GravaContatoLogic implements Logica {
 
-		public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-			long id = Long.parseLong(req.getParameter("id"));
-			String nome = req.getParameter("nome");
-			String email = req.getParameter("email");
-			String endereco = req.getParameter("endereco");
+			long id = Long.parseLong(request.getParameter("id"));
+			String nome = request.getParameter("nome");
+			String email = request.getParameter("email");
+			String endereco = request.getParameter("endereco");
 			
-			String dataEmTexto = req.getParameter("dataNascimento");
+			String dataEmTexto = request.getParameter("dataNascimento");
 			Calendar dataNascimento = null;
 			try {
 				Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
@@ -37,7 +38,8 @@ public class GravaContatoLogic implements Logica {
 			contato.setEndereco(endereco);
 			contato.setDataNascimento(dataNascimento);
 			
-			ContatoDao dao = new ContatoDao();
+			Connection connection = (Connection) request.getAttribute("conexao");
+			ContatoDao dao = new ContatoDao(connection);
 
 			if (id == 0) { // Inclui
 				

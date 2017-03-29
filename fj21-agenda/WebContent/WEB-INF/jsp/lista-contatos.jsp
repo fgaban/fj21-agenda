@@ -41,7 +41,7 @@
 					<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>
 				</td>
 				<td>
-					<a href="grava-contato.jsp?id=${contato.id}&nome=${contato.nome}&email=${contato.email}
+					<a href="mvc?logica=MostraContatoLogic&id=${contato.id}&nome=${contato.nome}&email=${contato.email}
 						&endereco=${contato.endereco}&dataNascimento=<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>">Alterar</a>
 				</td>
 				<td>
@@ -51,7 +51,7 @@
 		</c:forEach>
 		<tr align="center">
 			<td>
-				<a href="grava-contato.jsp?id=0">Incluir</a>
+				<a href="mvc?logica=MostraContatoLogic&id=0">Incluir</a>
 			</td>
 		</tr>
 	</table>

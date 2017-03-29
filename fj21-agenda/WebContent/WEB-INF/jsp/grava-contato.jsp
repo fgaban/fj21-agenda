@@ -11,7 +11,7 @@
 	<script src="js/jquery-ui.js"></script>
 </head>
 <body>
-	<c:import url="/WEB-INF/jsp/cabecalho.jsp"/>
+	<c:import url="cabecalho.jsp"/>
 
 	<h1>Grava Contato</h1>
 	<hr />
@@ -25,6 +25,6 @@
 		<input type="submit" value="Gravar">
 	</form>
 	
-	<c:import url="/WEB-INF/jsp/rodape.jsp"/>
+	<c:import url="rodape.jsp"/>
 </body>
 </html>
